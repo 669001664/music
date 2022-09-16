@@ -1,0 +1,62 @@
+@value constants: '~styles/constants.module.css';
+@value sidebarWidth, headerHeight, bodyMinWidth, logoLeft from constants;
+
+.root {
+  width: 100%;
+  min-width: bodyMinWidth;
+  height: headerHeight;
+  background-color: rgba(248, 248, 248, 0.95);
+  box-shadow: 0 1px 10px 1px rgb(0 0 0 / 12%);
+  position: fixed;
+  top: 0;
+  display: flex;
+  z-index: 10;
+}
+
+.actions {
+  width: sidebarWidth;
+}
+
+.navigate-icon {
+  position: absolute;
+  height: 100%;
+  margin: auto 0;
+  left: 150px;
+  top: 25%;
+}
+
+.content {
+  margin-left: sidebarWidth;
+}
+
+.logo {
+  color: #000;
+  padding: 5px 0;
+  position: absolute;
+  top: 45%;
+  left: logoLeft;
+  transform: translate(-50%, -50%) scale(2);
+  text-decoration: none;
+  background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x,
+      radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
+  background-size: 20px 20px;
+  background-position: -10px calc(100% + 16px), 0 calc(100% - 4px);
+  animation: waveFlow 1s infinite linear;
+}
+
+@keyframes waveFlow {
+  from { background-position-x: -10px, 0; }
+  to { background-position-x: -30px, -20px; }
+}
+
+@keyframes moveTop {
+  100% {
+      bottom: -5px;
+  }
+}
+
+@keyframes moveBottom {
+  100% {
+      bottom: 5px;
+  }
+}

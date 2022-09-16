@@ -1,0 +1,9 @@
+@value constants: '~styles/constants.module.css';
+@value sidebarWidth, headerHeight, bodyMinWidth from constants;
+
+.root {
+  width: sidebarWidth;
+  padding-top: headerHeight;
+  height: 100%;
+  background-color: #eaeaea;
+}
