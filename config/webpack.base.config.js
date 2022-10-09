@@ -5,6 +5,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 // import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import TerserPlugin from 'terser-webpack-plugin'
 
+// eslint-disable-next-line no-undef
 const rootPath = process.cwd()
 
 export default (env, argv) => {

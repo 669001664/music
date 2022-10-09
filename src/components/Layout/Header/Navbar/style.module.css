@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+}
+
+.item {
+  margin-right: 20px;
+  cursor: pointer;
+  color: grey;
+}
+
+.item:hover {
+  color: black;
+}
+
+.active {
+  color: black;
+}

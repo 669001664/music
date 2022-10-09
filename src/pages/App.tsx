@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from '../components/Layout';
 
 import ROUTES from '../constants/routes';
@@ -14,8 +14,9 @@ const App = (): JSX.Element => {
       <Layout>
         <React.Suspense fallback={null}>
           <Routes>
-            <Route path={ROUTES.ROOT} element={<Discovery />} />
+            <Route path={ROUTES.DISCOVERY} element={<Discovery />} />
             <Route path={ROUTES.VIDEOS} element={<Discovery />} />
+            <Route path={ROUTES.ROOT} element={<Navigate to={ROUTES.DEFAULT_ROUTE} />} />
           </Routes>
         </React.Suspense>
       </Layout>
