@@ -1,11 +1,10 @@
 import React from "react"
+import { useLocalStore, Observer } from "mobx-react-lite";
+import AuthStore from "store/authStore"
 
 const Discovery = (): JSX.Element => {
-  return (
-    <div>
-      富贵猪
-    </div>
-  )
+  const localStore = useLocalStore(() => AuthStore);
+  return <Observer>{() => <div>{localStore.count}</div>}</Observer>
 }
- 
+
 export default Discovery 

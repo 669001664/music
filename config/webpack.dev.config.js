@@ -1,4 +1,6 @@
-import webpack from 'webpack'
+import webpack from 'webpack';
+import path from 'path';
+import { dirname } from 'path';
 
 export default {
   devtool: 'eval-cheap-module-source-map',
@@ -26,7 +28,7 @@ export default {
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
-    contentBase: './dist',
+    contentBase: path.join(dirname(), 'dist'),
     historyApiFallback: true,
     hot: true,
     proxy: {

@@ -4,9 +4,9 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 // import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import TerserPlugin from 'terser-webpack-plugin'
+import process from 'process';
 
-// eslint-disable-next-line no-undef
-const rootPath = process.cwd()
+const rootPath = process.cwd() || '/';
 
 export default (env, argv) => {
   const isProd = argv.mode === 'production'
@@ -24,6 +24,7 @@ export default (env, argv) => {
       modules: [path.resolve(rootPath, 'src'), 'node_modules'],
       alias: {
         '@': path.resolve('src'),
+        process: "process/browser"
         // '@mui': path.resolve(rootPath, 'node_modules/@uniquemo/mui/esm/components'),
       },
     },
@@ -88,8 +89,11 @@ export default (env, argv) => {
       ],
     },
     plugins: [
+      new webpack.ProvidePlugin({
+        process: 'process/browser.js',
+      }),
       new webpack.DefinePlugin({
-        // 'process.env': '{}', // 临时修复@blueprintjs报错“process is not defined”
+        'process.env': '{}', // 临时修复@blueprintjs报错“process is not defined”
         __LOCALHOST__: process.env.LOCAL === 'true',
       }),
       new HtmlWebpackPlugin({

@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
-    "experimentalDecorators": true,
     "baseUrl": "./src",
     "target": "es5",
     "lib": [

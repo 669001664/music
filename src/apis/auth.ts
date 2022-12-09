@@ -13,7 +13,7 @@ const login: LoginFn = ({ phone, password }) => {
   })
 }
 
-const logout = () => {
+const logout: unknown = () => {
   return request({
     method: 'post',
     url: '/logout',

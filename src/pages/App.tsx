@@ -3,8 +3,6 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from '../components/Layout';
 
 import ROUTES from '../constants/routes';
-import 'choerodon-ui/dist/choerodon-ui.css';
-import 'choerodon-ui/dist/choerodon-ui-pro.css';
 
 const Discovery = React.lazy(() => import('./Discovery'));
 

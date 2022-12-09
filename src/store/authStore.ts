@@ -1,4 +1,4 @@
-import { action, runInAction } from "mobx";
+import { action, observable, runInAction } from "mobx";
 import { ILoginResult } from "apis/types/auth";
 import AuthApis from 'apis/auth';
 
@@ -10,10 +10,13 @@ class AuthStore {
     this.userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}")
   }
 
+  @observable
+  count = 1
+
   @action.bound
   login(phone: string, password: string) {
     return new Promise((resolve, rejects) => {
-      AuthApis.login({ phone, password }).then((res: any) => {
+      AuthApis.login({ phone, password }).then((res: ILoginResult) => {
         runInAction(() => {
           console.log(res)
           if (res.code === 400) {
@@ -31,6 +34,7 @@ class AuthStore {
   @action.bound
   logout() {
     return new Promise((resolve, reject) => {
+      console.log(resolve, reject);
       this.userInfo = null
       localStorage.removeItem('userInfo')
     })
@@ -38,4 +42,4 @@ class AuthStore {
 
 }
 
-export default AuthStore;
+export default new AuthStore();
